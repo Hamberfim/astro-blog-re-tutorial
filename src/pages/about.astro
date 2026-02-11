@@ -22,6 +22,11 @@ const skills = [
   "Astro",
   "Web Application Development",
 ];
+
+// conditional rendering
+const happy = true;
+const finished = false;
+const goal = 2;
 ---
 
 <html lang="en">
@@ -41,7 +46,6 @@ const skills = [
     </nav>
     <h1>{pageTitle}</h1>
     <h2>About Me</h2>
-    <h3>...the Astro Blog Site Tutorial</h3>
     <p>
       I'm working through the Astro introductory tutorial. This is part of Unit
       2
@@ -65,5 +69,15 @@ const skills = [
     <ul>
       {skills.map((skill) => <li>{skill}</li>)}
     </ul>
+    <p>Some conditional rendering:</p>
+    {happy && <p>I am happy learning Astro!</p>}
+    {finished && <p>I have finished the tutorial!</p>}
+    {
+      goal >= 3 ? (
+        <p>My goal is to finish in three days</p>
+      ) : (
+        <p>My goal is not completed.</p>
+      )
+    }
   </body>
 </html>
