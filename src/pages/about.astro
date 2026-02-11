@@ -1,5 +1,27 @@
 ---
 const pageTitle = "About Me - Blogging in Astro";
+
+// identity object
+const identity = {
+  firstName: "Anthony",
+  lastName: "Unknown",
+  country: "USA",
+  occupation: "Software Engineer",
+  hobbies: ["cooking", "photography", "reading", "outdoors"],
+};
+
+// skills arrayHtm
+const skills = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "C#",
+  "Python",
+  "Java",
+  "React",
+  "Astro",
+  "Web Application Development",
+];
 ---
 
 <html lang="en">
@@ -24,10 +46,24 @@ const pageTitle = "About Me - Blogging in Astro";
       I'm working through the Astro introductory tutorial. This is part of Unit
       2
     </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore
-      molestias blanditiis deserunt quod voluptatem corporis in cupiditate
-      recusandae, enim, esse vel modi laudantium sit aliquid.
-    </p>
+    <p>Some facts about me:</p>
+    <ul>
+      <li>My name is {identity.firstName}</li>
+      <li>
+        I live in the {identity.country} and I work as a {identity.occupation}.
+      </li>
+      {
+        identity.hobbies.length >= 3 && (
+          <li>
+            A few of my hobbies are: {identity.hobbies[0]},{" "}
+            {identity.hobbies[1]}, and {identity.hobbies[3]}.
+          </li>
+        )
+      }
+    </ul>
+    <p>Some of my Skills are:</p>
+    <ul>
+      {skills.map((skill) => <li>{skill}</li>)}
+    </ul>
   </body>
 </html>
